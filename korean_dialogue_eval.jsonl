@@ -1,0 +1,24 @@
+{"text":"안녕하세요!!","intent":"인사"}
+{"text":"정말 반가워요","intent":"인사"}
+{"text":"정말 고마워요","intent":"감사"}
+{"text":"도와주셔서 고마워","intent":"감사"}
+{"text":"다음에 또 보자","intent":"작별"}
+{"text":"정말 미안해요","intent":"사과"}
+{"text":"사용법 좀 알려줘","intent":"도움말"}
+{"text":"너는 대체 누구야","intent":"정체"}
+{"text":"요즘 잘 지내","intent":"안부"}
+{"text":"응 알겠어","intent":"긍정"}
+{"text":"정말 행복해","intent":"기쁨"}
+{"text":"오늘 기분이 너무 좋아","intent":"기쁨"}
+{"text":"오늘 정말 힘들었어","intent":"속상함"}
+{"text":"제 이름은 윤서입니다","intent":"이름소개"}
+{"text":"그 사람은 지금 어디에 있어","intent":"후속위치"}
+{"text":"그 물건은 누가 가지고 있어","intent":"후속소유"}
+{"text":"근거가 뭔지 알려줘","intent":"근거질문"}
+{"text":"안녕이라는 단어의 뜻을 알려줘","intent":null}
+{"text":"고마워라는 말을 번역해줘","intent":null}
+{"text":"철수가 친구에게 안녕하세요라고 말했다","intent":null}
+{"text":"나는 책을 가지고 있다","intent":null}
+{"text":"기분이 좋아라는 문장을 분석해줘","intent":null}
+{"text":"내 이름은 윤서가 아니야","intent":null}
+{"text":"내일 주식이 오를까","intent":null}

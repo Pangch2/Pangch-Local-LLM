@@ -1,0 +1,139 @@
+{"text":"철수가 영희에게 사과를 주었다","surface":"주었다","predicate":"주다","tense":"과거","negated":false,"roles":{"행위자":{"surface":"철수가","value":"철수"},"받는사람":{"surface":"영희에게","value":"영희"},"대상":{"surface":"사과를","value":"사과"}}}
+{"text":"민준이 지수한테 책을 주었다","surface":"주었다","predicate":"주다","tense":"과거","negated":false,"roles":{"행위자":{"surface":"민준이","value":"민준"},"받는사람":{"surface":"지수한테","value":"지수"},"대상":{"surface":"책을","value":"책"}}}
+{"text":"철수는 사과를 먹는다","surface":"먹는다","predicate":"먹다","tense":"현재","negated":false,"roles":{"행위자":{"surface":"철수는","value":"철수"},"대상":{"surface":"사과를","value":"사과"}}}
+{"text":"민준은 밥을 먹었다","surface":"먹었다","predicate":"먹다","tense":"과거","negated":false,"roles":{"행위자":{"surface":"민준은","value":"민준"},"대상":{"surface":"밥을","value":"밥"}}}
+{"text":"철수가 사과를 안 먹었다","surface":"안 먹었다","predicate":"먹다","tense":"과거","negated":true,"roles":{"행위자":{"surface":"철수가","value":"철수"},"대상":{"surface":"사과를","value":"사과"}}}
+{"text":"철수가 사과를 먹지 않았다","surface":"먹지 않았다","predicate":"먹다","tense":"과거","negated":true,"roles":{"행위자":{"surface":"철수가","value":"철수"},"대상":{"surface":"사과를","value":"사과"}}}
+{"text":"사과가 나무에서 떨어졌다","surface":"떨어졌다","predicate":"떨어지다","tense":"과거","negated":false,"roles":{"대상":{"surface":"사과가","value":"사과"},"장소":{"surface":"나무에서","value":"나무"}}}
+{"text":"영희가 철수에게 꽃을 주었다","surface":"주었다","predicate":"주다","tense":"과거","negated":false,"roles":{"행위자":{"surface":"영희가","value":"영희"},"받는사람":{"surface":"철수에게","value":"철수"},"대상":{"surface":"꽃을","value":"꽃"}}}
+{"text":"새봄은 유나한테 선물을 준다","surface":"준다","predicate":"주다","tense":"현재","negated":false,"roles":{"행위자":{"surface":"새봄은","value":"새봄"},"받는사람":{"surface":"유나한테","value":"유나"},"대상":{"surface":"선물을","value":"선물"}}}
+{"text":"지수가 민준에게 편지를 주지 않았다","surface":"주지 않았다","predicate":"주다","tense":"과거","negated":true,"roles":{"행위자":{"surface":"지수가","value":"지수"},"받는사람":{"surface":"민준에게","value":"민준"},"대상":{"surface":"편지를","value":"편지"}}}
+{"text":"아빠가 아이에게 우산을 줄 것이다","surface":"줄 것이다","predicate":"주다","tense":"미래","negated":false,"roles":{"행위자":{"surface":"아빠가","value":"아빠"},"받는사람":{"surface":"아이에게","value":"아이"},"대상":{"surface":"우산을","value":"우산"}}}
+{"text":"유나가 빵을 먹는다","surface":"먹는다","predicate":"먹다","tense":"현재","negated":false,"roles":{"행위자":{"surface":"유나가","value":"유나"},"대상":{"surface":"빵을","value":"빵"}}}
+{"text":"민준은 국을 먹지 않는다","surface":"먹지 않는다","predicate":"먹다","tense":"현재","negated":true,"roles":{"행위자":{"surface":"민준은","value":"민준"},"대상":{"surface":"국을","value":"국"}}}
+{"text":"지수가 김밥을 먹을 것이다","surface":"먹을 것이다","predicate":"먹다","tense":"미래","negated":false,"roles":{"행위자":{"surface":"지수가","value":"지수"},"대상":{"surface":"김밥을","value":"김밥"}}}
+{"text":"영희가 신문을 읽는다","surface":"읽는다","predicate":"읽다","tense":"현재","negated":false,"roles":{"행위자":{"surface":"영희가","value":"영희"},"대상":{"surface":"신문을","value":"신문"}}}
+{"text":"철수는 소설을 읽었다","surface":"읽었다","predicate":"읽다","tense":"과거","negated":false,"roles":{"행위자":{"surface":"철수는","value":"철수"},"대상":{"surface":"소설을","value":"소설"}}}
+{"text":"유나가 보고서를 읽지 않았다","surface":"읽지 않았다","predicate":"읽다","tense":"과거","negated":true,"roles":{"행위자":{"surface":"유나가","value":"유나"},"대상":{"surface":"보고서를","value":"보고서"}}}
+{"text":"민준이 편지를 쓴다","surface":"쓴다","predicate":"쓰다","tense":"현재","negated":false,"roles":{"행위자":{"surface":"민준이","value":"민준"},"대상":{"surface":"편지를","value":"편지"}}}
+{"text":"지수는 일기를 썼다","surface":"썼다","predicate":"쓰다","tense":"과거","negated":false,"roles":{"행위자":{"surface":"지수는","value":"지수"},"대상":{"surface":"일기를","value":"일기"}}}
+{"text":"새봄이 답장을 쓰지 않았다","surface":"쓰지 않았다","predicate":"쓰다","tense":"과거","negated":true,"roles":{"행위자":{"surface":"새봄이","value":"새봄"},"대상":{"surface":"답장을","value":"답장"}}}
+{"text":"아빠가 영화를 본다","surface":"본다","predicate":"보다","tense":"현재","negated":false,"roles":{"행위자":{"surface":"아빠가","value":"아빠"},"대상":{"surface":"영화를","value":"영화"}}}
+{"text":"아이들은 공연을 보았다","surface":"보았다","predicate":"보다","tense":"과거","negated":false,"roles":{"행위자":{"surface":"아이들은","value":"아이들"},"대상":{"surface":"공연을","value":"공연"}}}
+{"text":"철수가 텔레비전을 안 보았다","surface":"안 보았다","predicate":"보다","tense":"과거","negated":true,"roles":{"행위자":{"surface":"철수가","value":"철수"},"대상":{"surface":"텔레비전을","value":"텔레비전"}}}
+{"text":"영희가 민준을 만난다","surface":"만난다","predicate":"만나다","tense":"현재","negated":false,"roles":{"행위자":{"surface":"영희가","value":"영희"},"대상":{"surface":"민준을","value":"민준"}}}
+{"text":"지수는 선생님을 만났다","surface":"만났다","predicate":"만나다","tense":"과거","negated":false,"roles":{"행위자":{"surface":"지수는","value":"지수"},"대상":{"surface":"선생님을","value":"선생님"}}}
+{"text":"철수가 친구를 만나지 않았다","surface":"만나지 않았다","predicate":"만나다","tense":"과거","negated":true,"roles":{"행위자":{"surface":"철수가","value":"철수"},"대상":{"surface":"친구를","value":"친구"}}}
+{"text":"민준이 열쇠를 찾는다","surface":"찾는다","predicate":"찾다","tense":"현재","negated":false,"roles":{"행위자":{"surface":"민준이","value":"민준"},"대상":{"surface":"열쇠를","value":"열쇠"}}}
+{"text":"유나가 지갑을 찾았다","surface":"찾았다","predicate":"찾다","tense":"과거","negated":false,"roles":{"행위자":{"surface":"유나가","value":"유나"},"대상":{"surface":"지갑을","value":"지갑"}}}
+{"text":"새봄은 답을 찾지 않았다","surface":"찾지 않았다","predicate":"찾다","tense":"과거","negated":true,"roles":{"행위자":{"surface":"새봄은","value":"새봄"},"대상":{"surface":"답을","value":"답"}}}
+{"text":"철수가 케이크를 만든다","surface":"만든다","predicate":"만들다","tense":"현재","negated":false,"roles":{"행위자":{"surface":"철수가","value":"철수"},"대상":{"surface":"케이크를","value":"케이크"}}}
+{"text":"영희는 모형을 만들었다","surface":"만들었다","predicate":"만들다","tense":"과거","negated":false,"roles":{"행위자":{"surface":"영희는","value":"영희"},"대상":{"surface":"모형을","value":"모형"}}}
+{"text":"아이가 장난감을 만들지 않았다","surface":"만들지 않았다","predicate":"만들다","tense":"과거","negated":true,"roles":{"행위자":{"surface":"아이가","value":"아이"},"대상":{"surface":"장난감을","value":"장난감"}}}
+{"text":"지수가 연필을 산다","surface":"산다","predicate":"사다","tense":"현재","negated":false,"roles":{"행위자":{"surface":"지수가","value":"지수"},"대상":{"surface":"연필을","value":"연필"}}}
+{"text":"민준은 자전거를 샀다","surface":"샀다","predicate":"사다","tense":"과거","negated":false,"roles":{"행위자":{"surface":"민준은","value":"민준"},"대상":{"surface":"자전거를","value":"자전거"}}}
+{"text":"유나가 우유를 사지 않았다","surface":"사지 않았다","predicate":"사다","tense":"과거","negated":true,"roles":{"행위자":{"surface":"유나가","value":"유나"},"대상":{"surface":"우유를","value":"우유"}}}
+{"text":"철수가 영희에게 사진을 보낸다","surface":"보낸다","predicate":"보내다","tense":"현재","negated":false,"roles":{"행위자":{"surface":"철수가","value":"철수"},"받는사람":{"surface":"영희에게","value":"영희"},"대상":{"surface":"사진을","value":"사진"}}}
+{"text":"지수는 민준한테 소포를 보냈다","surface":"보냈다","predicate":"보내다","tense":"과거","negated":false,"roles":{"행위자":{"surface":"지수는","value":"지수"},"받는사람":{"surface":"민준한테","value":"민준"},"대상":{"surface":"소포를","value":"소포"}}}
+{"text":"새봄이 아빠에게 편지를 보내지 않았다","surface":"보내지 않았다","predicate":"보내다","tense":"과거","negated":true,"roles":{"행위자":{"surface":"새봄이","value":"새봄"},"받는사람":{"surface":"아빠에게","value":"아빠"},"대상":{"surface":"편지를","value":"편지"}}}
+{"text":"영희가 철수에게 책을 받는다","surface":"받는다","predicate":"받다","tense":"현재","negated":false,"roles":{"행위자":{"surface":"영희가","value":"영희"},"주는사람":{"surface":"철수에게","value":"철수"},"대상":{"surface":"책을","value":"책"}}}
+{"text":"민준은 선생님에게 상장을 받았다","surface":"받았다","predicate":"받다","tense":"과거","negated":false,"roles":{"행위자":{"surface":"민준은","value":"민준"},"주는사람":{"surface":"선생님에게","value":"선생님"},"대상":{"surface":"상장을","value":"상장"}}}
+{"text":"지수가 친구에게 도움을 받지 않았다","surface":"받지 않았다","predicate":"받다","tense":"과거","negated":true,"roles":{"행위자":{"surface":"지수가","value":"지수"},"주는사람":{"surface":"친구에게","value":"친구"},"대상":{"surface":"도움을","value":"도움"}}}
+{"text":"철수가 도서관에서 책을 빌린다","surface":"빌린다","predicate":"빌리다","tense":"현재","negated":false,"roles":{"행위자":{"surface":"철수가","value":"철수"},"장소":{"surface":"도서관에서","value":"도서관"},"대상":{"surface":"책을","value":"책"}}}
+{"text":"유나는 친구에게 우산을 빌렸다","surface":"빌렸다","predicate":"빌리다","tense":"과거","negated":false,"roles":{"행위자":{"surface":"유나는","value":"유나"},"받는사람":{"surface":"친구에게","value":"친구"},"대상":{"surface":"우산을","value":"우산"}}}
+{"text":"민준이 돈을 빌리지 않았다","surface":"빌리지 않았다","predicate":"빌리다","tense":"과거","negated":true,"roles":{"행위자":{"surface":"민준이","value":"민준"},"대상":{"surface":"돈을","value":"돈"}}}
+{"text":"영희가 문을 연다","surface":"연다","predicate":"열다","tense":"현재","negated":false,"roles":{"행위자":{"surface":"영희가","value":"영희"},"대상":{"surface":"문을","value":"문"}}}
+{"text":"철수는 창문을 열었다","surface":"열었다","predicate":"열다","tense":"과거","negated":false,"roles":{"행위자":{"surface":"철수는","value":"철수"},"대상":{"surface":"창문을","value":"창문"}}}
+{"text":"아이가 상자를 열지 않았다","surface":"열지 않았다","predicate":"열다","tense":"과거","negated":true,"roles":{"행위자":{"surface":"아이가","value":"아이"},"대상":{"surface":"상자를","value":"상자"}}}
+{"text":"지수가 문을 닫는다","surface":"닫는다","predicate":"닫다","tense":"현재","negated":false,"roles":{"행위자":{"surface":"지수가","value":"지수"},"대상":{"surface":"문을","value":"문"}}}
+{"text":"민준이 창문을 닫았다","surface":"닫았다","predicate":"닫다","tense":"과거","negated":false,"roles":{"행위자":{"surface":"민준이","value":"민준"},"대상":{"surface":"창문을","value":"창문"}}}
+{"text":"영희는 상자를 닫지 않았다","surface":"닫지 않았다","predicate":"닫다","tense":"과거","negated":true,"roles":{"행위자":{"surface":"영희는","value":"영희"},"대상":{"surface":"상자를","value":"상자"}}}
+{"text":"철수가 학교에 간다","surface":"간다","predicate":"가다","tense":"현재","negated":false,"roles":{"행위자":{"surface":"철수가","value":"철수"},"장소":{"surface":"학교에","value":"학교"}}}
+{"text":"유나는 공원에 갔다","surface":"갔다","predicate":"가다","tense":"과거","negated":false,"roles":{"행위자":{"surface":"유나는","value":"유나"},"장소":{"surface":"공원에","value":"공원"}}}
+{"text":"민준이 회사에 가지 않았다","surface":"가지 않았다","predicate":"가다","tense":"과거","negated":true,"roles":{"행위자":{"surface":"민준이","value":"민준"},"장소":{"surface":"회사에","value":"회사"}}}
+{"text":"아빠가 집에 온다","surface":"온다","predicate":"오다","tense":"현재","negated":false,"roles":{"행위자":{"surface":"아빠가","value":"아빠"},"장소":{"surface":"집에","value":"집"}}}
+{"text":"선생님은 교실에 왔다","surface":"왔다","predicate":"오다","tense":"과거","negated":false,"roles":{"행위자":{"surface":"선생님은","value":"선생님"},"장소":{"surface":"교실에","value":"교실"}}}
+{"text":"지수가 모임에 오지 않았다","surface":"오지 않았다","predicate":"오다","tense":"과거","negated":true,"roles":{"행위자":{"surface":"지수가","value":"지수"},"장소":{"surface":"모임에","value":"모임"}}}
+{"text":"철수가 의자에 앉는다","surface":"앉는다","predicate":"앉다","tense":"현재","negated":false,"roles":{"행위자":{"surface":"철수가","value":"철수"},"장소":{"surface":"의자에","value":"의자"}}}
+{"text":"영희는 벤치에 앉았다","surface":"앉았다","predicate":"앉다","tense":"과거","negated":false,"roles":{"행위자":{"surface":"영희는","value":"영희"},"장소":{"surface":"벤치에","value":"벤치"}}}
+{"text":"민준이 자리에 앉지 않았다","surface":"앉지 않았다","predicate":"앉다","tense":"과거","negated":true,"roles":{"행위자":{"surface":"민준이","value":"민준"},"장소":{"surface":"자리에","value":"자리"}}}
+{"text":"아이가 운동장에서 뛴다","surface":"뛴다","predicate":"뛰다","tense":"현재","negated":false,"roles":{"행위자":{"surface":"아이가","value":"아이"},"장소":{"surface":"운동장에서","value":"운동장"}}}
+{"text":"지수는 공원에서 뛰었다","surface":"뛰었다","predicate":"뛰다","tense":"과거","negated":false,"roles":{"행위자":{"surface":"지수는","value":"지수"},"장소":{"surface":"공원에서","value":"공원"}}}
+{"text":"철수가 운동장에서 뛰지 않았다","surface":"뛰지 않았다","predicate":"뛰다","tense":"과거","negated":true,"roles":{"행위자":{"surface":"철수가","value":"철수"},"장소":{"surface":"운동장에서","value":"운동장"}}}
+{"text":"영희가 한국어를 공부한다","surface":"공부한다","predicate":"공부하다","tense":"현재","negated":false,"roles":{"행위자":{"surface":"영희가","value":"영희"},"대상":{"surface":"한국어를","value":"한국어"}}}
+{"text":"민준은 수학을 공부했다","surface":"공부했다","predicate":"공부하다","tense":"과거","negated":false,"roles":{"행위자":{"surface":"민준은","value":"민준"},"대상":{"surface":"수학을","value":"수학"}}}
+{"text":"유나가 과학을 공부하지 않았다","surface":"공부하지 않았다","predicate":"공부하다","tense":"과거","negated":true,"roles":{"행위자":{"surface":"유나가","value":"유나"},"대상":{"surface":"과학을","value":"과학"}}}
+{"text":"아빠가 회사에서 일한다","surface":"일한다","predicate":"일하다","tense":"현재","negated":false,"roles":{"행위자":{"surface":"아빠가","value":"아빠"},"장소":{"surface":"회사에서","value":"회사"}}}
+{"text":"엄마는 병원에서 일했다","surface":"일했다","predicate":"일하다","tense":"과거","negated":false,"roles":{"행위자":{"surface":"엄마는","value":"엄마"},"장소":{"surface":"병원에서","value":"병원"}}}
+{"text":"철수가 회사에서 일하지 않았다","surface":"일하지 않았다","predicate":"일하다","tense":"과거","negated":true,"roles":{"행위자":{"surface":"철수가","value":"철수"},"장소":{"surface":"회사에서","value":"회사"}}}
+{"text":"영희가 버스를 기다린다","surface":"기다린다","predicate":"기다리다","tense":"현재","negated":false,"roles":{"행위자":{"surface":"영희가","value":"영희"},"대상":{"surface":"버스를","value":"버스"}}}
+{"text":"민준은 친구를 기다렸다","surface":"기다렸다","predicate":"기다리다","tense":"과거","negated":false,"roles":{"행위자":{"surface":"민준은","value":"민준"},"대상":{"surface":"친구를","value":"친구"}}}
+{"text":"지수가 손님을 기다리지 않았다","surface":"기다리지 않았다","predicate":"기다리다","tense":"과거","negated":true,"roles":{"행위자":{"surface":"지수가","value":"지수"},"대상":{"surface":"손님을","value":"손님"}}}
+{"text":"철수가 음악을 좋아한다","surface":"좋아한다","predicate":"좋아하다","tense":"현재","negated":false,"roles":{"행위자":{"surface":"철수가","value":"철수"},"대상":{"surface":"음악을","value":"음악"}}}
+{"text":"유나는 겨울을 좋아했다","surface":"좋아했다","predicate":"좋아하다","tense":"과거","negated":false,"roles":{"행위자":{"surface":"유나는","value":"유나"},"대상":{"surface":"겨울을","value":"겨울"}}}
+{"text":"민준이 음식을 좋아하지 않는다","surface":"좋아하지 않는다","predicate":"좋아하다","tense":"현재","negated":true,"roles":{"행위자":{"surface":"민준이","value":"민준"},"대상":{"surface":"음식을","value":"음식"}}}
+{"text":"지수가 피아노를 배운다","surface":"배운다","predicate":"배우다","tense":"현재","negated":false,"roles":{"행위자":{"surface":"지수가","value":"지수"},"대상":{"surface":"피아노를","value":"피아노"}}}
+{"text":"새봄은 요리를 배웠다","surface":"배웠다","predicate":"배우다","tense":"과거","negated":false,"roles":{"행위자":{"surface":"새봄은","value":"새봄"},"대상":{"surface":"요리를","value":"요리"}}}
+{"text":"철수가 수영을 배우지 않았다","surface":"배우지 않았다","predicate":"배우다","tense":"과거","negated":true,"roles":{"행위자":{"surface":"철수가","value":"철수"},"대상":{"surface":"수영을","value":"수영"}}}
+{"text":"선생님이 학생에게 수학을 가르친다","surface":"가르친다","predicate":"가르치다","tense":"현재","negated":false,"roles":{"행위자":{"surface":"선생님이","value":"선생님"},"받는사람":{"surface":"학생에게","value":"학생"},"대상":{"surface":"수학을","value":"수학"}}}
+{"text":"영희는 동생에게 노래를 가르쳤다","surface":"가르쳤다","predicate":"가르치다","tense":"과거","negated":false,"roles":{"행위자":{"surface":"영희는","value":"영희"},"받는사람":{"surface":"동생에게","value":"동생"},"대상":{"surface":"노래를","value":"노래"}}}
+{"text":"민준이 아이에게 글을 가르치지 않았다","surface":"가르치지 않았다","predicate":"가르치다","tense":"과거","negated":true,"roles":{"행위자":{"surface":"민준이","value":"민준"},"받는사람":{"surface":"아이에게","value":"아이"},"대상":{"surface":"글을","value":"글"}}}
+{"text":"지훈이 공책을 가지고 있다","surface":"가지고 있다","predicate":"가지다","tense":"현재","negated":false,"domain":"소유","roles":{"행위자":{"surface":"지훈이","value":"지훈"},"대상":{"surface":"공책을","value":"공책"}}}
+{"text":"도윤은 모자를 가졌다","surface":"가졌다","predicate":"가지다","tense":"과거","negated":false,"domain":"소유","roles":{"행위자":{"surface":"도윤은","value":"도윤"},"대상":{"surface":"모자를","value":"모자"}}}
+{"text":"수아가 인형을 갖고 있다","surface":"갖고 있다","predicate":"가지다","tense":"현재","negated":false,"domain":"소유","roles":{"행위자":{"surface":"수아가","value":"수아"},"대상":{"surface":"인형을","value":"인형"}}}
+{"text":"예나는 우산을 가지고 있었다","surface":"가지고 있었다","predicate":"가지다","tense":"과거","negated":false,"domain":"소유","roles":{"행위자":{"surface":"예나는","value":"예나"},"대상":{"surface":"우산을","value":"우산"}}}
+{"text":"하린이 공책을 가지고 있지 않다","surface":"가지고 있지 않다","predicate":"가지다","tense":"현재","negated":true,"domain":"소유","roles":{"행위자":{"surface":"하린이","value":"하린"},"대상":{"surface":"공책을","value":"공책"}}}
+{"text":"도윤은 모자를 가질 것이다","surface":"가질 것이다","predicate":"가지다","tense":"미래","negated":false,"domain":"소유","roles":{"행위자":{"surface":"도윤은","value":"도윤"},"대상":{"surface":"모자를","value":"모자"}}}
+{"text":"수아가 인형을 가지고 있다","surface":"가지고 있다","predicate":"가지다","tense":"현재","negated":false,"domain":"소유","roles":{"행위자":{"surface":"수아가","value":"수아"},"대상":{"surface":"인형을","value":"인형"}}}
+{"text":"예나는 우산을 가지고 있다","surface":"가지고 있다","predicate":"가지다","tense":"현재","negated":false,"domain":"소유","roles":{"행위자":{"surface":"예나는","value":"예나"},"대상":{"surface":"우산을","value":"우산"}}}
+{"text":"하린이 공책을 가지고 있다","surface":"가지고 있다","predicate":"가지다","tense":"현재","negated":false,"domain":"소유","roles":{"행위자":{"surface":"하린이","value":"하린"},"대상":{"surface":"공책을","value":"공책"}}}
+{"text":"지훈이 보라에게 공책을 주었다","surface":"주었다","predicate":"주다","tense":"과거","negated":false,"domain":"소유","roles":{"행위자":{"surface":"지훈이","value":"지훈"},"받는사람":{"surface":"보라에게","value":"보라"},"대상":{"surface":"공책을","value":"공책"}}}
+{"text":"도윤은 재민한테 모자를 줬다","surface":"줬다","predicate":"주다","tense":"과거","negated":false,"domain":"소유","roles":{"행위자":{"surface":"도윤은","value":"도윤"},"받는사람":{"surface":"재민한테","value":"재민"},"대상":{"surface":"모자를","value":"모자"}}}
+{"text":"수아가 보라에게 인형을 준다","surface":"준다","predicate":"주다","tense":"현재","negated":false,"domain":"소유","roles":{"행위자":{"surface":"수아가","value":"수아"},"받는사람":{"surface":"보라에게","value":"보라"},"대상":{"surface":"인형을","value":"인형"}}}
+{"text":"예나는 재민한테 우산을 주지 않았다","surface":"주지 않았다","predicate":"주다","tense":"과거","negated":true,"domain":"소유","roles":{"행위자":{"surface":"예나는","value":"예나"},"받는사람":{"surface":"재민한테","value":"재민"},"대상":{"surface":"우산을","value":"우산"}}}
+{"text":"하린이 보라에게 공책을 안 주었다","surface":"안 주었다","predicate":"주다","tense":"과거","negated":true,"domain":"소유","roles":{"행위자":{"surface":"하린이","value":"하린"},"받는사람":{"surface":"보라에게","value":"보라"},"대상":{"surface":"공책을","value":"공책"}}}
+{"text":"도윤은 재민한테 모자를 줄 것이다","surface":"줄 것이다","predicate":"주다","tense":"미래","negated":false,"domain":"소유","roles":{"행위자":{"surface":"도윤은","value":"도윤"},"받는사람":{"surface":"재민한테","value":"재민"},"대상":{"surface":"모자를","value":"모자"}}}
+{"text":"수아가 보라에게 인형을 주었다","surface":"주었다","predicate":"주다","tense":"과거","negated":false,"domain":"소유","roles":{"행위자":{"surface":"수아가","value":"수아"},"받는사람":{"surface":"보라에게","value":"보라"},"대상":{"surface":"인형을","value":"인형"}}}
+{"text":"예나는 재민한테 우산을 주었다","surface":"주었다","predicate":"주다","tense":"과거","negated":false,"domain":"소유","roles":{"행위자":{"surface":"예나는","value":"예나"},"받는사람":{"surface":"재민한테","value":"재민"},"대상":{"surface":"우산을","value":"우산"}}}
+{"text":"하린이 보라에게 공책을 주었다","surface":"주었다","predicate":"주다","tense":"과거","negated":false,"domain":"소유","roles":{"행위자":{"surface":"하린이","value":"하린"},"받는사람":{"surface":"보라에게","value":"보라"},"대상":{"surface":"공책을","value":"공책"}}}
+{"text":"하린이 보라에게 공책을 받았다","surface":"받았다","predicate":"받다","tense":"과거","negated":false,"domain":"소유","roles":{"행위자":{"surface":"하린이","value":"하린"},"주는사람":{"surface":"보라에게","value":"보라"},"대상":{"surface":"공책을","value":"공책"}}}
+{"text":"도윤은 재민한테 모자를 받는다","surface":"받는다","predicate":"받다","tense":"현재","negated":false,"domain":"소유","roles":{"행위자":{"surface":"도윤은","value":"도윤"},"주는사람":{"surface":"재민한테","value":"재민"},"대상":{"surface":"모자를","value":"모자"}}}
+{"text":"수아가 보라에게 인형을 받지 않았다","surface":"받지 않았다","predicate":"받다","tense":"과거","negated":true,"domain":"소유","roles":{"행위자":{"surface":"수아가","value":"수아"},"주는사람":{"surface":"보라에게","value":"보라"},"대상":{"surface":"인형을","value":"인형"}}}
+{"text":"예나는 재민한테 우산을 안 받았다","surface":"안 받았다","predicate":"받다","tense":"과거","negated":true,"domain":"소유","roles":{"행위자":{"surface":"예나는","value":"예나"},"주는사람":{"surface":"재민한테","value":"재민"},"대상":{"surface":"우산을","value":"우산"}}}
+{"text":"하린이 보라에게 공책을 받을 것이다","surface":"받을 것이다","predicate":"받다","tense":"미래","negated":false,"domain":"소유","roles":{"행위자":{"surface":"하린이","value":"하린"},"주는사람":{"surface":"보라에게","value":"보라"},"대상":{"surface":"공책을","value":"공책"}}}
+{"text":"도윤은 재민한테 모자를 받았다","surface":"받았다","predicate":"받다","tense":"과거","negated":false,"domain":"소유","roles":{"행위자":{"surface":"도윤은","value":"도윤"},"주는사람":{"surface":"재민한테","value":"재민"},"대상":{"surface":"모자를","value":"모자"}}}
+{"text":"수아가 보라에게 인형을 받았다","surface":"받았다","predicate":"받다","tense":"과거","negated":false,"domain":"소유","roles":{"행위자":{"surface":"수아가","value":"수아"},"주는사람":{"surface":"보라에게","value":"보라"},"대상":{"surface":"인형을","value":"인형"}}}
+{"text":"예나는 재민한테 우산을 받았다","surface":"받았다","predicate":"받다","tense":"과거","negated":false,"domain":"소유","roles":{"행위자":{"surface":"예나는","value":"예나"},"주는사람":{"surface":"재민한테","value":"재민"},"대상":{"surface":"우산을","value":"우산"}}}
+{"text":"하린이 학교에 갔다","surface":"갔다","predicate":"가다","tense":"과거","negated":false,"domain":"위치","roles":{"행위자":{"surface":"하린이","value":"하린"},"장소":{"surface":"학교에","value":"학교"}}}
+{"text":"도윤은 공원에 간다","surface":"간다","predicate":"가다","tense":"현재","negated":false,"domain":"위치","roles":{"행위자":{"surface":"도윤은","value":"도윤"},"장소":{"surface":"공원에","value":"공원"}}}
+{"text":"수아가 교실에 가지 않았다","surface":"가지 않았다","predicate":"가다","tense":"과거","negated":true,"domain":"위치","roles":{"행위자":{"surface":"수아가","value":"수아"},"장소":{"surface":"교실에","value":"교실"}}}
+{"text":"예나는 집에 안 갔다","surface":"안 갔다","predicate":"가다","tense":"과거","negated":true,"domain":"위치","roles":{"행위자":{"surface":"예나는","value":"예나"},"장소":{"surface":"집에","value":"집"}}}
+{"text":"하린이 학교에 갈 것이다","surface":"갈 것이다","predicate":"가다","tense":"미래","negated":false,"domain":"위치","roles":{"행위자":{"surface":"하린이","value":"하린"},"장소":{"surface":"학교에","value":"학교"}}}
+{"text":"도윤은 공원에 갔다","surface":"갔다","predicate":"가다","tense":"과거","negated":false,"domain":"위치","roles":{"행위자":{"surface":"도윤은","value":"도윤"},"장소":{"surface":"공원에","value":"공원"}}}
+{"text":"수아가 교실에 갔다","surface":"갔다","predicate":"가다","tense":"과거","negated":false,"domain":"위치","roles":{"행위자":{"surface":"수아가","value":"수아"},"장소":{"surface":"교실에","value":"교실"}}}
+{"text":"예나는 집에 갔다","surface":"갔다","predicate":"가다","tense":"과거","negated":false,"domain":"위치","roles":{"행위자":{"surface":"예나는","value":"예나"},"장소":{"surface":"집에","value":"집"}}}
+{"text":"하린이 학교에 왔다","surface":"왔다","predicate":"오다","tense":"과거","negated":false,"domain":"위치","roles":{"행위자":{"surface":"하린이","value":"하린"},"장소":{"surface":"학교에","value":"학교"}}}
+{"text":"도윤은 공원에 온다","surface":"온다","predicate":"오다","tense":"현재","negated":false,"domain":"위치","roles":{"행위자":{"surface":"도윤은","value":"도윤"},"장소":{"surface":"공원에","value":"공원"}}}
+{"text":"수아가 교실에 오지 않았다","surface":"오지 않았다","predicate":"오다","tense":"과거","negated":true,"domain":"위치","roles":{"행위자":{"surface":"수아가","value":"수아"},"장소":{"surface":"교실에","value":"교실"}}}
+{"text":"예나는 집에 안 왔다","surface":"안 왔다","predicate":"오다","tense":"과거","negated":true,"domain":"위치","roles":{"행위자":{"surface":"예나는","value":"예나"},"장소":{"surface":"집에","value":"집"}}}
+{"text":"하린이 학교에 올 것이다","surface":"올 것이다","predicate":"오다","tense":"미래","negated":false,"domain":"위치","roles":{"행위자":{"surface":"하린이","value":"하린"},"장소":{"surface":"학교에","value":"학교"}}}
+{"text":"도윤은 공원에 왔다","surface":"왔다","predicate":"오다","tense":"과거","negated":false,"domain":"위치","roles":{"행위자":{"surface":"도윤은","value":"도윤"},"장소":{"surface":"공원에","value":"공원"}}}
+{"text":"수아가 교실에 왔다","surface":"왔다","predicate":"오다","tense":"과거","negated":false,"domain":"위치","roles":{"행위자":{"surface":"수아가","value":"수아"},"장소":{"surface":"교실에","value":"교실"}}}
+{"text":"예나는 집에 왔다","surface":"왔다","predicate":"오다","tense":"과거","negated":false,"domain":"위치","roles":{"행위자":{"surface":"예나는","value":"예나"},"장소":{"surface":"집에","value":"집"}}}
+{"text":"지훈이 학교로 이동했다","surface":"이동했다","predicate":"이동하다","tense":"과거","negated":false,"domain":"위치","roles":{"행위자":{"surface":"지훈이","value":"지훈"},"장소":{"surface":"학교로","value":"학교"}}}
+{"text":"도윤은 공원으로 이동한다","surface":"이동한다","predicate":"이동하다","tense":"현재","negated":false,"domain":"위치","roles":{"행위자":{"surface":"도윤은","value":"도윤"},"장소":{"surface":"공원으로","value":"공원"}}}
+{"text":"수아가 교실로 이동하지 않았다","surface":"이동하지 않았다","predicate":"이동하다","tense":"과거","negated":true,"domain":"위치","roles":{"행위자":{"surface":"수아가","value":"수아"},"장소":{"surface":"교실로","value":"교실"}}}
+{"text":"예나는 집으로 이동할 것이다","surface":"이동할 것이다","predicate":"이동하다","tense":"미래","negated":false,"domain":"위치","roles":{"행위자":{"surface":"예나는","value":"예나"},"장소":{"surface":"집으로","value":"집"}}}
+{"text":"하린이 학교로 이동했다","surface":"이동했다","predicate":"이동하다","tense":"과거","negated":false,"domain":"위치","roles":{"행위자":{"surface":"하린이","value":"하린"},"장소":{"surface":"학교로","value":"학교"}}}
+{"text":"도윤은 공원으로 이동했다","surface":"이동했다","predicate":"이동하다","tense":"과거","negated":false,"domain":"위치","roles":{"행위자":{"surface":"도윤은","value":"도윤"},"장소":{"surface":"공원으로","value":"공원"}}}
+{"text":"수아가 교실로 이동했다","surface":"이동했다","predicate":"이동하다","tense":"과거","negated":false,"domain":"위치","roles":{"행위자":{"surface":"수아가","value":"수아"},"장소":{"surface":"교실로","value":"교실"}}}
+{"text":"지훈이 학교에 있다","surface":"있다","predicate":"있다","tense":"현재","negated":false,"domain":"위치","roles":{"행위자":{"surface":"지훈이","value":"지훈"},"장소":{"surface":"학교에","value":"학교"}}}
+{"text":"도윤은 공원에 있었다","surface":"있었다","predicate":"있다","tense":"과거","negated":false,"domain":"위치","roles":{"행위자":{"surface":"도윤은","value":"도윤"},"장소":{"surface":"공원에","value":"공원"}}}
+{"text":"수아가 교실에 있지 않다","surface":"있지 않다","predicate":"있다","tense":"현재","negated":true,"domain":"위치","roles":{"행위자":{"surface":"수아가","value":"수아"},"장소":{"surface":"교실에","value":"교실"}}}
+{"text":"예나는 집에 있을 것이다","surface":"있을 것이다","predicate":"있다","tense":"미래","negated":false,"domain":"위치","roles":{"행위자":{"surface":"예나는","value":"예나"},"장소":{"surface":"집에","value":"집"}}}
+{"text":"하린이 학교에 있다","surface":"있다","predicate":"있다","tense":"현재","negated":false,"domain":"위치","roles":{"행위자":{"surface":"하린이","value":"하린"},"장소":{"surface":"학교에","value":"학교"}}}
+{"text":"도윤은 공원에 있다","surface":"있다","predicate":"있다","tense":"현재","negated":false,"domain":"위치","roles":{"행위자":{"surface":"도윤은","value":"도윤"},"장소":{"surface":"공원에","value":"공원"}}}
+{"text":"수아가 교실에 있다","surface":"있다","predicate":"있다","tense":"현재","negated":false,"domain":"위치","roles":{"행위자":{"surface":"수아가","value":"수아"},"장소":{"surface":"교실에","value":"교실"}}}
+{"text":"감이 나무에서 떨어졌다","surface":"떨어졌다","predicate":"떨어지다","tense":"과거","negated":false,"domain":"물리","roles":{"대상":{"surface":"감이","value":"감"},"장소":{"surface":"나무에서","value":"나무"}}}
+{"text":"배가 나무에서 떨어진다","surface":"떨어진다","predicate":"떨어지다","tense":"현재","negated":false,"domain":"물리","roles":{"대상":{"surface":"배가","value":"배"},"장소":{"surface":"나무에서","value":"나무"}}}
+{"text":"수아가 국을 먹었다","surface":"먹었다","predicate":"먹다","tense":"과거","negated":false,"domain":"식사","roles":{"행위자":{"surface":"수아가","value":"수아"},"대상":{"surface":"국을","value":"국"}}}

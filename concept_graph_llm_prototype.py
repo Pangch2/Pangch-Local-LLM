@@ -3,7 +3,12 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from collections import defaultdict
 from typing import Dict, List, Optional, Iterable, Tuple
-import heapq
+from pathlib import Path
+import argparse
+import re
+from korean_event_input import KoreanEventInput, train_file
+from event_reasoning import ReasoningSession
+from korean_dialogue import KoreanDialogue
 
 
 # ============================================================
@@ -24,11 +29,11 @@ class Edge:
 class ConceptNode:
     id: int
     name: str
-    activation: float = 0.0
     confidence: float = 1.0
     novelty: float = 0.0
     flags: int = 0
     edges: List[Edge] = field(default_factory=list)
+    domains: frozenset[str] = field(default_factory=frozenset)
 
 
 @dataclass(slots=True)
@@ -58,6 +63,7 @@ class ConceptGraph:
         *,
         aliases: Iterable[str] = (),
         confidence: float = 1.0,
+        domains: Iterable[str] = (),
     ) -> int:
         key = name.strip().lower()
 
@@ -71,6 +77,7 @@ class ConceptGraph:
                 id=node_id,
                 name=name,
                 confidence=confidence,
+                domains=frozenset(domains),
             )
             self.name_to_id[key] = node_id
 
@@ -128,14 +135,9 @@ class ConceptGraph:
 
         node_id = self.resolve(concept)
         if node_id is None:
-            raise KeyError(f"알 수 없는 개념: {concept!r}")
+            raise KeyError(f"Unknown concept: {concept!r}")
 
         return node_id
-
-    def reset_activation(self) -> None:
-        for node in self.nodes.values():
-            node.activation = 0.0
-
 
 # ============================================================
 # Sparse activation router
@@ -165,7 +167,7 @@ class ActivationRouter:
         self.max_depth = max_depth
 
         # Relation-specific routing bias.
-        self.relation_gain: Dict[str, float] = defaultdict(lambda: 1.0)
+        self.relation_gain: Dict[str, float] = {}
 
     def set_relation_gain(self, relation: str, gain: float) -> None:
         self.relation_gain[relation] = gain
@@ -173,17 +175,32 @@ class ActivationRouter:
     def activate(
         self,
         seeds: Dict[str | int, float],
+        *,
+        disabled: Iterable[str | int] = (),
+        active_domains: Optional[Iterable[str]] = None,
     ) -> Dict[int, WorkingNode]:
-        self.graph.reset_activation()
+        blocked = {self.graph._id(concept) for concept in disabled}
+        selected = None if active_domains is None else frozenset(active_domains)
 
+        def allowed(node_id):
+            domains = self.graph.nodes[node_id].domains
+            return (node_id not in blocked and
+                    (selected is None or not domains or bool(domains & selected)))
+
+        activations: Dict[int, float] = {}
         working: Dict[int, WorkingNode] = {}
-        frontier: List[Tuple[float, int, int]] = []
+        frontier: Dict[int, float] = {}
 
         for concept, activation in seeds.items():
             node_id = self.graph._id(concept)
+            if not allowed(node_id):
+                continue
             activation = max(0.0, min(1.0, activation))
-
-            self.graph.nodes[node_id].activation = activation
+            if activation <= 0 or activation < self.threshold:
+                continue
+            activation = max(activations.get(node_id, 0.0), activation)
+            activations[node_id] = activation
+            frontier[node_id] = activation
             working[node_id] = WorkingNode(
                 concept_id=node_id,
                 name=self.graph.nodes[node_id].name,
@@ -191,96 +208,90 @@ class ActivationRouter:
                 depth=0,
             )
 
-            # max heap via negative activation
-            heapq.heappush(frontier, (-activation, node_id, 0))
+        seed_ids = set(frontier)
+        parent_strength: Dict[int, float] = {}
 
-        best_seen: Dict[int, float] = {
-            node_id: item.activation
-            for node_id, item in working.items()
-        }
+        for depth in range(self.max_depth):
+            candidates: List[Tuple[float, int, Edge, float]] = []
 
-        while frontier:
-            neg_act, src_id, depth = heapq.heappop(frontier)
-            src_act = -neg_act
-
-            if depth >= self.max_depth:
-                continue
-
-            # Ignore stale heap entries.
-            if src_act + 1e-12 < best_seen.get(src_id, 0.0):
-                continue
-
-            src = self.graph.nodes[src_id]
-
-            candidates: List[Tuple[float, Edge]] = []
-
-            for edge in src.edges:
-                sign = -1.0 if edge.inhibitory else 1.0
-
-                message = (
-                    src_act
-                    * edge.strength
-                    * edge.confidence
-                    * self.relation_gain[edge.relation]
-                    * self.decay
-                    * sign
-                )
-
-                # Cost lowers routing priority.
-                if message > 0.0:
-                    message *= max(0.0, 1.0 - edge.cost)
-
-                if abs(message) >= self.threshold:
-                    candidates.append((abs(message), edge))
-
-            # Local top-k avoids exploding fan-out.
-            candidates.sort(key=lambda x: x[0], reverse=True)
-            candidates = candidates[: self.top_k]
-
-            for magnitude, edge in candidates:
-                target = self.graph.nodes[edge.target]
-
-                sign = -1.0 if edge.inhibitory else 1.0
-                contribution = (
-                    src_act
-                    * edge.strength
-                    * edge.confidence
-                    * self.relation_gain[edge.relation]
-                    * self.decay
-                    * sign
-                    * max(0.0, 1.0 - edge.cost)
-                )
-
-                new_activation = max(
-                    -1.0,
-                    min(1.0, target.activation + contribution),
-                )
-
-                target.activation = new_activation
-
-                if abs(new_activation) < self.threshold:
-                    continue
-
-                prev = best_seen.get(edge.target, 0.0)
-                if abs(new_activation) <= abs(prev):
-                    continue
-
-                best_seen[edge.target] = new_activation
-
-                working[edge.target] = WorkingNode(
-                    concept_id=edge.target,
-                    name=target.name,
-                    activation=new_activation,
-                    depth=depth + 1,
-                    parent=src_id,
-                    via_relation=edge.relation,
-                )
-
-                if new_activation > 0:
-                    heapq.heappush(
-                        frontier,
-                        (-new_activation, edge.target, depth + 1),
+            for src_id, src_act in frontier.items():
+                for edge in self.graph.nodes[src_id].edges:
+                    if not allowed(edge.target):
+                        continue
+                    contribution = (
+                        src_act
+                        * edge.strength
+                        * edge.confidence
+                        * self.graph.nodes[edge.target].confidence
+                        * self.relation_gain.get(edge.relation, 1.0)
+                        * self.decay
+                        * (-1.0 if edge.inhibitory else 1.0)
+                        * max(0.0, 1.0 - edge.cost)
                     )
+
+                    if abs(contribution) >= self.threshold:
+                        candidates.append(
+                            (abs(contribution), src_id, edge, contribution)
+                        )
+
+            candidates.sort(key=lambda item: item[0], reverse=True)
+            candidates = candidates[: self.top_k]
+            if not candidates:
+                break
+
+            next_signals: Dict[int, float] = defaultdict(float)
+
+            for magnitude, src_id, edge, contribution in candidates:
+                next_signals[edge.target] += contribution
+
+                if (
+                    edge.target not in seed_ids
+                    and magnitude > parent_strength.get(edge.target, -1.0)
+                ):
+                    parent_strength[edge.target] = magnitude
+                    target = self.graph.nodes[edge.target]
+                    working[edge.target] = WorkingNode(
+                        concept_id=edge.target,
+                        name=target.name,
+                        activation=0.0,
+                        depth=depth + 1,
+                        parent=src_id,
+                        via_relation=edge.relation,
+                    )
+
+            frontier = {}
+
+            for node_id, signal in next_signals.items():
+                signal = max(-1.0, min(1.0, signal))
+                activation = max(
+                    -1.0,
+                    min(1.0, activations.get(node_id, 0.0) + signal),
+                )
+                activations[node_id] = activation
+
+                item = working.get(node_id)
+                if item is not None:
+                    item.activation = activation
+                elif abs(activation) >= self.threshold:
+                    working[node_id] = WorkingNode(
+                        concept_id=node_id,
+                        name=self.graph.nodes[node_id].name,
+                        activation=activation,
+                        depth=depth + 1,
+                    )
+
+                # Inhibition affects the target but does not spread further.
+                if signal >= self.threshold:
+                    frontier[node_id] = signal
+
+            if not frontier:
+                break
+
+        working = {
+            node_id: item
+            for node_id, item in working.items()
+            if abs(item.activation) >= self.threshold or item.depth == 0
+        }
 
         # Global top-k over the final working set.
         ordered = sorted(
@@ -464,31 +475,46 @@ class DebugDecoder:
 def build_demo_graph() -> ConceptGraph:
     g = ConceptGraph()
 
-    g.add_concept("사과", aliases=["apple"])
-    g.add_concept("나무", aliases=["tree"])
-    g.add_concept("낙하", aliases=["fall", "떨어지다", "떨어지는"])
-    g.add_concept("물체", aliases=["object"])
-    g.add_concept("질량", aliases=["mass"])
-    g.add_concept("중력", aliases=["gravity"])
-    g.add_concept("가속도", aliases=["acceleration"])
-    g.add_concept("높이", aliases=["height"])
-    g.add_concept("운동", aliases=["motion"])
-    g.add_concept("지면", aliases=["ground", "땅"])
+    g.add_concept("apple", aliases=["사과"])
+    g.add_concept("tree", aliases=["나무"])
+    g.add_concept("fall", aliases=["떨어지다", "떨어지는", "낙하"], domains=["물리"])
+    g.add_concept("object", aliases=["물체"], domains=["물리"])
+    g.add_concept("mass", aliases=["질량"], domains=["물리"])
+    g.add_concept("gravity", aliases=["중력"], domains=["물리"])
+    g.add_concept("acceleration", aliases=["가속도"], domains=["물리"])
+    g.add_concept("height", aliases=["높이"], domains=["물리"])
+    g.add_concept("motion", aliases=["운동"], domains=["물리"])
+    g.add_concept("ground", aliases=["땅", "지면"], domains=["물리"])
 
-    g.connect("사과", "물체", "종류", strength=0.95)
-    g.connect("물체", "질량", "속성", strength=0.88)
-    g.connect("질량", "중력", "영향받음", strength=0.95)
+    g.connect("apple", "object", "is_a", strength=0.95)
+    g.connect("object", "mass", "has_property", strength=0.88)
+    g.connect("mass", "gravity", "affected_by", strength=0.95)
 
-    g.connect("중력", "가속도", "원인", strength=0.98)
-    g.connect("가속도", "낙하", "원인", strength=0.92)
+    g.connect("gravity", "acceleration", "causes", strength=0.98)
+    g.connect("acceleration", "fall", "causes", strength=0.92)
 
-    g.connect("나무", "높이", "속성", strength=0.90)
-    g.connect("높이", "낙하", "가능하게 함", strength=0.72)
+    g.connect("tree", "height", "has_property", strength=0.90)
+    g.connect("height", "fall", "enables", strength=0.72)
 
-    g.connect("낙하", "운동", "종류", strength=0.92)
-    g.connect("낙하", "지면", "향함", strength=0.70)
+    g.connect("fall", "motion", "is_a", strength=0.92)
+    g.connect("fall", "ground", "toward", strength=0.70)
 
     return g
+
+
+def build_reasoning_graph(perception):
+    graph = build_demo_graph()
+    graph.add_concept("대화", domains=["대화"])
+    # Build the index once; each request traverses only the selected subgraph.
+    for predicate in perception.domains:
+        domain = perception.domain_for(predicate)
+        if domain is None:
+            continue
+        graph.add_concept(domain, domains=[domain])
+        if graph.resolve(predicate) is None:
+            graph.add_concept(predicate, domains=[domain])
+        graph.connect(domain, predicate, "관련동작")
+    return graph
 
 
 # ============================================================
@@ -496,9 +522,18 @@ def build_demo_graph() -> ConceptGraph:
 # ============================================================
 
 def main() -> None:
-    graph = build_demo_graph()
-
-    perception = KeywordPerception(graph)
+    parser = argparse.ArgumentParser(description="한국어 사건과 희소 개념 활성화")
+    parser.add_argument("--model", help="학습한 한국어 입력 모델 JSON")
+    parser.add_argument("--dialogue-model", help="학습한 한국어 대화 모델 JSON")
+    parser.add_argument("--disable", action="append", default=[], help="비활성화할 개념 이름 (반복 가능)")
+    parser.add_argument("--disable-domain", action="append", default=[], help="비활성화할 분야 (소유, 위치, 물리 등)")
+    parser.add_argument("--debug", action="store_true", help="활성화된 그래프 노드 출력")
+    args = parser.parse_args()
+    perception = (KoreanEventInput.load(args.model) if args.model
+                  else train_file(Path(__file__).with_name("korean_events.jsonl")))
+    dialogue = (KoreanDialogue.load(args.dialogue_model) if args.dialogue_model
+                else KoreanDialogue.train_file(Path(__file__).with_name("korean_dialogues.jsonl")))
+    graph = build_reasoning_graph(perception)
 
     router = ActivationRouter(
         graph,
@@ -509,61 +544,45 @@ def main() -> None:
     )
 
     # Relations can be selectively emphasized.
-    router.set_relation_gain("원인", 1.15)
-    router.set_relation_gain("영향받음", 1.10)
+    router.set_relation_gain("causes", 1.15)
+    router.set_relation_gain("affected_by", 1.10)
 
-    reasoner = ReasoningEngine(graph)
     decoder = DebugDecoder(graph)
-
-    query = input("질문: ").strip()
-    if not query:
-        return
-
-    seeds = perception.encode(query)
-
-    print("입력:")
-    print(query)
-    print()
-
-    print("시드 개념:")
-    for node_id, activation in seeds.items():
-        print(
-            f"  {graph.nodes[node_id].name}: "
-            f"{activation:.2f}"
-        )
-
-    print()
-
-    working = router.activate(seeds)
-
-    print(decoder.render(working))
-    print()
-
-    print("중력까지의 추론 경로:")
-    path = reasoner.explain_path(working, "중력")
-
-    if not path:
-        print("  중력이 활성화되지 않았습니다")
-    else:
-        for i, (name, relation) in enumerate(path):
-            if i == 0:
-                print(f"  {name}")
-            else:
-                print(f"    --{relation}--> {name}")
-
-    print()
-
-    print("낙하까지의 추론 경로:")
-    path = reasoner.explain_path(working, "낙하")
-
-    if not path:
-        print("  낙하가 활성화되지 않았습니다")
-    else:
-        for i, (name, relation) in enumerate(path):
-            if i == 0:
-                print(f"  {name}")
-            else:
-                print(f"    --{relation}--> {name}")
+    try:
+        session = ReasoningSession(perception, router, disabled=args.disable,
+                                   disabled_domains=args.disable_domain, dialogue=dialogue)
+    except (KeyError, ValueError) as error:
+        parser.error(str(error))
+    print("문장이나 질문을 입력하세요. /초기화: 기억 삭제, /종료 또는 빈 입력: 종료")
+    while True:
+        try:
+            text = input("입력: ").strip()
+        except (EOFError, KeyboardInterrupt):
+            print()
+            break
+        if not text or text == "/종료":
+            break
+        if text == "/초기화":
+            session.reset()
+            print("작업 기억을 초기화했습니다.")
+            continue
+        for sentence in re.findall(r"[^.!?。！？\n]+[.!?。！？]*", text):
+            if not sentence.strip():
+                continue
+            result = session.process(sentence)
+            if args.debug:
+                print("활성 분야: " + (", ".join(result.active_domains) or "없음"))
+                if result.intent:
+                    print("대화 의도: " + result.intent)
+            if args.debug and result.event:
+                event = result.event
+                print(f"사건: {event.predicate} / {event.tense} / 부정: {'예' if event.negated else '아니오'}")
+                print("  " + ", ".join(f"{role}={value}" for role, value in event.roles.items()))
+            print(result.message)
+            for evidence in result.evidence:
+                print(f"  근거: {evidence}")
+            if args.debug:
+                print(decoder.render(result.working))
 
 
 if __name__ == "__main__":
